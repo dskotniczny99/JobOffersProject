@@ -1,8 +1,8 @@
-package com.junioroffers.domain.loginandregister;
+package com.junioroffers.domain.login;
 
-import com.junioroffers.domain.loginandregister.dto.RegisterUserDto;
-import com.junioroffers.domain.loginandregister.dto.RegistrationResultDto;
-import com.junioroffers.domain.loginandregister.dto.UserDto;
+import com.junioroffers.domain.login.dto.RegisterUserDto;
+import com.junioroffers.domain.login.dto.RegistrationResultDto;
+import com.junioroffers.domain.login.dto.UserDto;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
