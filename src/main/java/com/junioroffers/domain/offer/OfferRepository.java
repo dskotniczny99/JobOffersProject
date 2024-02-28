@@ -3,7 +3,9 @@ package com.junioroffers.domain.offer;
 import java.util.List;
 import java.util.Optional;
 
-interface OfferRepository {
+
+public interface OfferRepository {
+
     boolean existsByOfferUrl(String offerUrl);
 
     Optional<Offer> findByOfferUrl(String offerUrl);

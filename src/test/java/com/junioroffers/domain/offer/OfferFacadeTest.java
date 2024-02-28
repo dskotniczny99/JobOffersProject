@@ -3,11 +3,9 @@ package com.junioroffers.domain.offer;
 import com.junioroffers.domain.offer.dto.JobOfferResponse;
 import com.junioroffers.domain.offer.dto.OfferRequestDto;
 import com.junioroffers.domain.offer.dto.OfferResponseDto;
+import java.util.List;
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.Test;
-
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.ThrowableAssert.catchThrowable;
 
