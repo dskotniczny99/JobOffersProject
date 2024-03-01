@@ -1,5 +1,6 @@
 package com.junioroffers.domain.offer.dto;
 
+
 import lombok.Builder;
 
 @Builder

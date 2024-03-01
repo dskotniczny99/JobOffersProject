@@ -5,7 +5,8 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-class InMemoryLoginRepositoryToTest implements LoginRepository{
+public class InMemoryLoginRepository implements LoginRepository {
+
     Map<String, User> database = new ConcurrentHashMap<>();
 
     @Override
@@ -14,12 +15,12 @@ class InMemoryLoginRepositoryToTest implements LoginRepository{
     }
 
     @Override
-    public User save(User entityUser) {
+    public User save(User entity) {
         UUID id = UUID.randomUUID();
-        final User user = new User(
+        User user = new User(
                 id.toString(),
-                entityUser.username(),
-                entityUser.password()
+                entity.username(),
+                entity.password()
         );
         database.put(user.username(), user);
         return user;

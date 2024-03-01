@@ -1,5 +1,6 @@
 package com.junioroffers.domain.offer;
 
+
 import com.junioroffers.domain.offer.dto.JobOfferResponse;
 import com.junioroffers.domain.offer.dto.OfferRequestDto;
 import com.junioroffers.domain.offer.dto.OfferResponseDto;
@@ -33,4 +34,5 @@ public class OfferMapper {
                 .companyName(jobOfferDto.company())
                 .build();
     }
+
 }

@@ -5,59 +5,55 @@ import com.junioroffers.domain.login.dto.RegistrationResultDto;
 import com.junioroffers.domain.login.dto.UserDto;
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.catchThrowable;
+import static org.assertj.core.api.ThrowableAssert.catchThrowable;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-class LoginAndRegisterFacadeTest {
+public class LoginAndRegisterFacadeTest {
 
-    LoginAndRegisterFacade loginAndRegisterFacade = new LoginAndRegisterFacade(new InMemoryLoginRepositoryToTest());
+    LoginAndRegisterFacade loginFacade = new LoginAndRegisterFacade(
+            new InMemoryLoginRepository()
+    );
 
     @Test
-    void should_register_user() {
-
+    public void should_register_user() {
         // given
-        RegisterUserDto registerUserDto = new RegisterUserDto("username", "password");
+        RegisterUserDto registerUserDto = new RegisterUserDto("username", "pass");
 
         // when
-        RegistrationResultDto registrationResultDto = loginAndRegisterFacade.register(registerUserDto);
+        RegistrationResultDto register = loginFacade.register(registerUserDto);
 
         // then
         assertAll(
-                () -> assertThat(registrationResultDto.created()).isTrue(),
-                () -> assertThat(registrationResultDto.username()).isEqualTo("username")
+                () -> assertThat(register.created()).isTrue(),
+                () -> assertThat(register.username()).isEqualTo("username")
         );
     }
 
     @Test
-    void should_find_user_by_user_name() {
-
+    public void should_find_user_by_user_name() {
         // given
-        RegisterUserDto registerUserDto = new RegisterUserDto("username", "password");
-        RegistrationResultDto registrationResultDto = loginAndRegisterFacade.register(registerUserDto);
+        RegisterUserDto registerUserDto = new RegisterUserDto("username", "pass");
+        RegistrationResultDto register = loginFacade.register(registerUserDto);
 
         // when
-        UserDto userDto= loginAndRegisterFacade.findByUsername(registerUserDto.username());
+        UserDto userByName = loginFacade.findByUsername(register.username());
 
         // then
-        assertThat(userDto).isEqualTo(new UserDto(registrationResultDto.id(), "password", "username"));
+        assertThat(userByName).isEqualTo(new UserDto(register.id(), "pass", "username"));
     }
 
-
     @Test
-    void should_throw_exception_when_user_not_found() {
-
+    public void should_throw_exception_when_user_not_found() {
         // given
-        String username = "not_existing_user";
+        String username = "someUser";
 
         // when
-        Throwable throwable = catchThrowable(() -> loginAndRegisterFacade.findByUsername(username));
+        Throwable thrown = catchThrowable(() -> loginFacade.findByUsername(username));
 
         // then
-        AssertionsForClassTypes.assertThat(throwable)
+        AssertionsForClassTypes.assertThat(thrown)
                 .isInstanceOf(UsernameNotFoundException.class)
                 .hasMessage("User not found");
     }
-
 }

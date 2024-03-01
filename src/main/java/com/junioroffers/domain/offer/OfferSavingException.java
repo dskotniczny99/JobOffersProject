@@ -1,8 +1,7 @@
 package com.junioroffers.domain.offer;
 
-import lombok.Getter;
-
 import java.util.List;
+import lombok.Getter;
 
 @Getter
 public class OfferSavingException extends RuntimeException {
