@@ -6,6 +6,8 @@ import com.junioroffers.domain.offer.dto.OfferResponseDto;
 import java.util.List;
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.Test;
+import org.testcontainers.shaded.org.yaml.snakeyaml.constructor.DuplicateKeyException;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.ThrowableAssert.catchThrowable;
 
@@ -117,7 +119,7 @@ public class OfferFacadeTest {
 
         // then
         AssertionsForClassTypes.assertThat(thrown)
-                .isInstanceOf(OfferDuplicateException.class)
+                .isInstanceOf(DuplicateKeyException.class)
                 .hasMessage("Offer with offerUrl [hello.pl] already exists");
     }
 }
