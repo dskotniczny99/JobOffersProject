@@ -1,7 +1,7 @@
 package com.junioroffers.http.error;
 
 import com.junioroffers.domain.offer.OfferFetchable;
-import com.junioroffers.infrastructure.offer.http.OfferHttpClientConfig;
+import com.junioroffers.infrastructure.loginandregister.http.OfferHttpClientConfig;
 import org.springframework.web.client.RestTemplate;
 import static com.junioroffers.BaseIntegrationTest.WIRE_MOCK_HOST;
 
