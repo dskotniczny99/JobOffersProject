@@ -1,1 +1,1 @@
-Job Offers - Backend
+<title>Job Offers - Backend </title>
