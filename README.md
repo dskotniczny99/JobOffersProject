@@ -1,7 +1,7 @@
 # Project Name: Job Offers
 
 ## Description
-Job Offers is a modern web application designed for Java Developers to efficiently collect job offers from various sources including websites and other web applications. The primary function of this application is to scrape and download current job listings from designated websites, thereby providing users with a centralized platform to explore available opportunities.
+Job Offers is a modern web application designed for Java Developers to efficiently collect job offers from various sources including websites and other web applications. The primary function of this application is to search and download current job offers from designated websites, thereby providing users with a centralized platform to explore available opportunities.
 
 ## Technologies Used
 - **Spring Boot**: Utilized for building the application with modules including Web (RestControllers), Test, Data MongoDB, Validation, Security, JWT, and Spring Scheduler.
